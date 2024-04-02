@@ -37,29 +37,40 @@ search.addEventListener('click', () => {
         const description = document.querySelector('.weather-box .description');
         const humidity = document.querySelector('.weather-details .humidity span');
         const wind = document.querySelector('.weather-details .wind span');
-          
+        const background = document.querySelector('body');
+
+         
+
         switch (json.weather[0].main){
             case 'Clear':
                 image.src = 'images/clear.png';
+                background.style.backgroundColor = '#da9030';
+                
                 break;
 
             case 'Rain':
                 image.src = 'images/rain.png';
+                background.style.backgroundColor = '#425a8f';
                 break;
 
 
             case 'Snow':
                 image.src = 'images/snow.png';
+                background.style.backgroundColor = '#a9c9fc';
                 break;
             
 
             case 'Clouds':
                 image.src = 'images/cloud.png';
+                background.style.backgroundColor = '#4c505c';
+
                 break;
 
 
             case 'Haze':
                 image.src = 'images/mist.png';
+                background.style.backgroundColor = '#78a1b3';
+                
                 break;
 
             default:
@@ -69,7 +80,9 @@ search.addEventListener('click', () => {
         temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
         description.innerHTML = `${json.weather[0].description}`;
         humidity.innerHTML = `${json.main.humidity}%`; 
-        wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`; 
+        wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+        
+        
 
 
         weatherBox.style.display = '';
